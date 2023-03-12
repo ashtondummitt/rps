@@ -5,6 +5,11 @@ function getComputerChoice() {
   return random;
 }
 
+const computerSelection = getComputerChoice();
+const playerSelection = prompt(
+  'Please choose "rock", "paper", or "scissors".'
+);
+
 function playRound(
   playerSelection,
   computerSelection
@@ -15,24 +20,22 @@ function playRound(
     playerSelection === "rock" &&
     computerSelection === "paper"
   ) {
-    return "You lose! Paper beats Rock";
+    return "You lose!";
   } else if (
     playerSelection === "paper" &&
     computerSelection === "scissors"
   ) {
-    return "You lose! Scissors beats Paper";
+    return "You lose!";
   } else if (
     playerSelection === "scissors" &&
     computerSelection === "rock"
   ) {
-    return "You lose! Rock beats Scissors";
+    return "You lose!";
   } else {
     return "You win!";
   }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
 console.log(computerSelection);
 console.log(playerSelection);
 console.log(

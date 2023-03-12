@@ -5,8 +5,6 @@ function getComputerChoice() {
   return random;
 }
 
-console.log(getComputerChoice());
-
 function playRound(
   playerSelection,
   computerSelection
@@ -34,7 +32,9 @@ function playRound(
 }
 
 const playerSelection = "rock";
-const computerSelection = getComputerChoice;
+const computerSelection = getComputerChoice();
+console.log(computerSelection);
+console.log(playerSelection);
 console.log(
   playRound(playerSelection, computerSelection)
 );

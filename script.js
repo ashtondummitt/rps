@@ -25,16 +25,24 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-
 function game() {
   for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt("Choose carefully...or suffer the consequences...", "Rock, Paper, or Scissors?");
+    const playerSelection = prompt(
+      "Choose carefully...or suffer the consequences...",
+      "Rock, Paper, or Scissors?"
+    );
 
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
     console.log(playRound(playerSelection, computerSelection));
     console.log(computerSelection);
     console.log(playerSelection);
+  }
+  let playAgain = confirm("Play again?");
+  if (playAgain) {
+    location.reload();
+  } else {
+    alert("That's too bad...");
   }
   if (playerScore > compScore) {
     return "You win the game!";
@@ -45,11 +53,9 @@ function game() {
   }
 }
 
-const playGame = confirm(
-    "I want to play a game..."
-);
- if (playGame) {
-    console.log(game());
- } else {
-    alert("That's too bad...");
- }
+const playGame = confirm("I want to play a game...");
+if (playGame) {
+  console.log(game());
+} else {
+  alert("That's too bad...");
+}

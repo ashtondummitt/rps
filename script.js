@@ -7,21 +7,34 @@ function getComputerChoice() {
   return random;
 }
 
+const playGame = confirm("I want to play a game...");
+if (playGame) {
+  console.log(game());
+} else {
+  alert("That's too bad...");
+}
+
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
-    return "Tie Game!";
+    if (playerSelection === computerSelection) {
+    return "We tied...";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
     compScore++;
-    return "You lose!";
+    return "You lose this round...";
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
     compScore++;
-    return "You lose!";
+    return "You lose this round...";
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
     compScore++;
-    return "You lose!";
-  } else {
+    return "You lose this round...";
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
     playerScore++;
-    return "You win!";
+    return "You win this round...";
+  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    playerScore++;
+    return "You win this round...";
+  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    playerScore++;
+    return "You win this round...";
   }
 }
 
@@ -34,29 +47,24 @@ function game() {
 
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+
     console.log(playRound(playerSelection, computerSelection));
     console.log(computerSelection);
     console.log(playerSelection);
   }
 
   if (playerScore > compScore) {
-    alert("You win the game!");
+    alert("You won this time...");
   } else if (playerScore < compScore) {
-    alert("You lose the game!");
+    alert("You lost. It was all for not.");
   } else {
-    alert("You tied with the computer!");
+    alert("We tied. You are stronger than I expected...");
   }
-  let playAgain = confirm("Play again?");
+
+  const playAgain = confirm("Play again?");
   if (playAgain) {
     location.reload();
   } else {
     alert("That's too bad...");
   }
-}
-
-const playGame = confirm("I want to play a game...");
-if (playGame) {
-  console.log(game());
-} else {
-  alert("That's too bad...");
 }

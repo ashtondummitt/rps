@@ -25,9 +25,6 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-let playGame = confirm(
-    "I want to play a game..."
-);
 
 function game() {
   for (let i = 0; i < 5; i++) {
@@ -48,4 +45,11 @@ function game() {
   }
 }
 
-console.log(game());
+const playGame = confirm(
+    "I want to play a game..."
+);
+ if (playGame) {
+    console.log(game());
+ } else {
+    alert("That's too bad...");
+ }

@@ -1,14 +1,14 @@
+let playerScore = 0;
+let compScore = 0;
+
+
 function getComputerChoice() {
-  let rps = ["rock", "paper", "scissors"];
+  const rps  = ["rock", "paper", "scissors"];
   let random =
     rps[Math.floor(Math.random() * rps.length)];
   return random;
 }
 
-const computerSelection = getComputerChoice();
-const playerSelection = prompt(
-  'Please choose "rock", "paper", or "scissors".'
-);
 
 function playRound(
   playerSelection,
@@ -20,24 +20,48 @@ function playRound(
     playerSelection === "rock" &&
     computerSelection === "paper"
   ) {
+    compScore++;
     return "You lose!";
   } else if (
     playerSelection === "paper" &&
     computerSelection === "scissors"
   ) {
+    compScore++;
     return "You lose!";
   } else if (
     playerSelection === "scissors" &&
     computerSelection === "rock"
   ) {
+    compScore++;
     return "You lose!";
   } else {
+    playerScore++
     return "You win!";
   }
 }
 
-console.log(computerSelection);
-console.log(playerSelection);
-console.log(
-  playRound(playerSelection, computerSelection)
-);
+
+
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt(
+            'Please choose "rock", "paper", or "scissors".'
+          );
+        const computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection)
+        console.log(playRound(playerSelection, computerSelection))
+        console.log(computerSelection);
+        console.log(playerSelection);
+    }
+    if (playerScore > compScore) {
+        return "You win the game!";
+    } else if (playerScore < compScore) {
+        return "You lose the game!";
+    } else {
+        return "You tied with the computer!"
+    }
+}
+
+console.log(game());
+

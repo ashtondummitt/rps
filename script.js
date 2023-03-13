@@ -3,33 +3,20 @@ let compScore = 0;
 
 function getComputerChoice() {
   const rps = ["rock", "paper", "scissors"];
-  let random =
-    rps[Math.floor(Math.random() * rps.length)];
+  let random = rps[Math.floor(Math.random() * rps.length)];
   return random;
 }
 
-function playRound(
-  playerSelection,
-  computerSelection
-) {
+function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return "Tie Game!";
-  } else if (
-    playerSelection === "rock" &&
-    computerSelection === "paper"
-  ) {
+  } else if (playerSelection === "rock" && computerSelection === "paper") {
     compScore++;
     return "You lose!";
-  } else if (
-    playerSelection === "paper" &&
-    computerSelection === "scissors"
-  ) {
+  } else if (playerSelection === "paper" && computerSelection === "scissors") {
     compScore++;
     return "You lose!";
-  } else if (
-    playerSelection === "scissors" &&
-    computerSelection === "rock"
-  ) {
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
     compScore++;
     return "You lose!";
   } else {
@@ -38,19 +25,17 @@ function playRound(
   }
 }
 
+let playGame = confirm(
+    "I want to play a game..."
+);
+
 function game() {
   for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt(
-      'I want to play a game...', "Rock, Paper, or Scissors"
-    );
+    const playerSelection = prompt("Choose carefully...or suffer the consequences...", "Rock, Paper, or Scissors?");
+
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
-    console.log(
-      playRound(
-        playerSelection,
-        computerSelection
-      )
-    );
+    console.log(playRound(playerSelection, computerSelection));
     console.log(computerSelection);
     console.log(playerSelection);
   }

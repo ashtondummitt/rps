@@ -38,18 +38,19 @@ function game() {
     console.log(computerSelection);
     console.log(playerSelection);
   }
+
+  if (playerScore > compScore) {
+    alert("You win the game!");
+  } else if (playerScore < compScore) {
+    alert("You lose the game!");
+  } else {
+    alert("You tied with the computer!");
+  }
   let playAgain = confirm("Play again?");
   if (playAgain) {
     location.reload();
   } else {
     alert("That's too bad...");
-  }
-  if (playerScore > compScore) {
-    return "You win the game!";
-  } else if (playerScore < compScore) {
-    return "You lose the game!";
-  } else {
-    return "You tied with the computer!";
   }
 }
 
